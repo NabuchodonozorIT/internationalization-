@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomTranslateServiceService {
+export class CustomTranslateService {
 
   public selectedLanguage = 'en';
 
@@ -46,3 +46,4 @@ export class CustomTranslateServiceService {
     },
   };
 }
+
