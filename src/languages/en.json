@@ -1,6 +1,6 @@
 {
-  mypage: {
-    title: 'John\'s Blog',
+  "mypage": {
+    "title": "John's Blog"
   },
-  search: 'Search Blog..'
+  "search": "Search Blog.."
 }

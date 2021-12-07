@@ -1,18 +1,41 @@
 import {Injectable} from '@angular/core';
+import {FileLoaderService} from '../file-loader/file-loader.service';
+
+export class Language {
+  id: string;
+  name: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomTranslateService {
 
-  public selectedLanguage = 'en';
+  public selectedLanguage: string;
+  public availableLanguages = [
+    { id: 'en', name: 'English' },
+    { id: 'pl', name: 'Polski' }
+    ];
 
-  constructor() {
+  constructor(private fileLoaderService: FileLoaderService) {
+    this.fileLoaderService.dictionary$.subscribe(dictionary => {
+      this.dictionary = dictionary;
+    });
+    this.changeLanguage('en');
+  }
+
+  public getAvailableLanguages(): Language[] {
+    return this.availableLanguages;
+  }
+
+  public changeLanguage(language: string): void {
+    this.selectedLanguage = language;
+    this.fileLoaderService.initLanguagePath(this.selectedLanguage);
   }
 
   public translate(key: string): string {
-    if (!!key && this.dictionary[this.selectedLanguage] != null) {
-      return this.getRequiredTranslation(key, this.dictionary[this.selectedLanguage]);
+    if (!!key && this.dictionary != null) {
+      return this.getRequiredTranslation(key, this.dictionary);
     }
   }
 
@@ -26,24 +49,11 @@ export class CustomTranslateService {
         return dictionary[key];
       }
     } catch (e) {
-      console.error('>>>>>> missing translation: ', e);
+      console.error(`>>>>>> missing translation: ${e}`);
       return 'missing translation';
     }
   }
 
-  private dictionary: { [key: string]: any } = {
-    pl: {
-      mypage: {
-        title: 'John\'s Blog',
-      },
-      search: 'Search Blog..'
-    },
-    en: {
-      mypage: {
-        title: 'John\'s Blog',
-      },
-      search: 'Search Blog..'
-    },
-  };
-}
+  private dictionary: any;
 
+}

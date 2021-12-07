@@ -1,6 +1,6 @@
 {
-  mypage: {
-    title: 'John\'s Blog',
+  "mypage": {
+    "title": "Jana Blog"
   },
-  search: 'Search Blog..'
+  "search": "Szukaj na Blogu.."
 }

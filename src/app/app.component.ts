@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {CustomTranslateService, Language} from './services/custom-translate/custom-translate.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,16 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
+  public language: Language;
+
+  public availableLanguages: Language[];
+
+  constructor(private customTranslateService: CustomTranslateService) {
+    this.availableLanguages = this.customTranslateService.getAvailableLanguages();
+  }
+
+  public changeLanguage(language: string): void {
+    this.customTranslateService.changeLanguage(language);
   }
 
 }
