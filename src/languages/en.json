@@ -2,5 +2,8 @@
   "mypage": {
     "title": "John's Blog"
   },
-  "search": "Search Blog.."
+  "search": "Search Blog..",
+  "blog": {
+    "recentPosts": "RECENT POSTS"
+  }
 }

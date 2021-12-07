@@ -2,5 +2,8 @@
   "mypage": {
     "title": "Jana Blog"
   },
-  "search": "Szukaj na Blogu.."
+  "search": "Szukaj na Blogu..",
+  "blog": {
+    "recentPosts": "OSTATNIE WPISY "
+  }
 }

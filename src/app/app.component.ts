@@ -8,7 +8,7 @@ import {CustomTranslateService, Language} from './services/custom-translate/cust
 })
 export class AppComponent {
 
-  public language: Language;
+  public language = 'en';
 
   public availableLanguages: Language[];
 
