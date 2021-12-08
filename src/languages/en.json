@@ -4,6 +4,8 @@
   },
   "search": "Search Blog..",
   "blog": {
-    "recentPosts": "RECENT POSTS"
+    "recentPosts": "RECENT POSTS",
+    "leaveAComment": "Leave a Comment",
+    "Submit": "Submit"
   }
 }

@@ -4,6 +4,8 @@
   },
   "search": "Szukaj na Blogu..",
   "blog": {
-    "recentPosts": "OSTATNIE WPISY "
+    "recentPosts": "OSTATNIE WPISY",
+    "leaveAComment": "Zostaw Komentarz",
+    "Submit": "Wyślij"
   }
 }

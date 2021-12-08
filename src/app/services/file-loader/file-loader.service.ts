@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 
 export class FileLoaderService {
 
-  public dictionary$ = new EventEmitter<any>();
+  public dictionary$ = new EventEmitter<object>();
 
   constructor(private http: HttpClient) {
   }
@@ -19,7 +19,7 @@ export class FileLoaderService {
     });
   }
 
-  public getJSON(url: string): Observable<any> {
+  public getJSON(url: string): Observable<object> {
     return this.http.get(url);
   }
 

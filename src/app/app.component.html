@@ -1,23 +1,22 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <h4>{{ 'mypage.title' | customTranslate}}</h4>
+  <div class="form-inline">
+    <input class="form-control mr-sm-2"
+           type="search"
+           [disabled]="!isSearchAvailable"
+           placeholder="{{ 'search' | customTranslate}}"
+           aria-label="Search">
+    <select class="form-select"
+            aria-label="Default select example"
+            [ngModel]="language"
+            (ngModelChange)="changeLanguage($event)">
+      <option *ngFor="let language of availableLanguages" [ngValue]="language.id">{{language.name}}</option>
+    </select>
+  </div>
+</nav>
+
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3 sidenav">
-      <h4>{{ 'mypage.title' | customTranslate}}</h4>
-
-      <select class="form-select" aria-label="Default select example"
-              [ngModel]="language"
-              (ngModelChange)="changeLanguage($event)">
-        <option *ngFor="let language of availableLanguages" [ngValue]="language.id">{{language.name}}</option>
-      </select>
-
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="{{ 'search' | customTranslate}}">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    </div>
 
     <div class="col-sm-9">
       <h4>
@@ -36,7 +35,7 @@
       <br><br>
 
       <h4>
-        <small>RECENT POSTS</small>
+        <small>{{ 'blog.recentPosts' | customTranslate}}</small>
       </h4>
       <hr>
       <h2>Officially Blogging</h2>
@@ -49,19 +48,15 @@
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <hr>
 
-      <h4>Leave a Comment:</h4>
+      <h4>{{ 'blog.leaveAComment' | customTranslate}}:</h4>
       <form role="form">
         <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
+          <textarea [disabled]="!isCommentingAvailable" class="form-control" rows="3" required></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" [disabled]="!isCommentingAvailable" class="btn btn-success">{{ 'blog.Submit' | customTranslate}}</button>
       </form>
       <br><br>
 
     </div>
   </div>
 </div>
-
-<footer class="container-fluid">
-  <p>Footer Text</p>
-</footer>
